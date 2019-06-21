@@ -1,0 +1,44 @@
+{
+	"info": {
+		"_postman_id": "e2eeddd0-bc59-429c-ae8c-95b40f3adb80",
+		"name": "CarpoolApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Heartbeat",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d9391695-9d8b-4f82-9bc6-1eee14f7974d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"    pm.response.to.have.body(\"Alive\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{baseUrl}}heartbeat",
+					"host": [
+						"{{baseUrl}}heartbeat"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

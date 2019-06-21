@@ -1,0 +1,16 @@
+{
+	"id": "3c2ac111-24ca-495a-9cd1-1b725cbfa4a2",
+	"name": "Carpool:Local",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "https://localhost:44331/api/",
+			"type": "text",
+			"description": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-04-02T04:46:19.398Z",
+	"_postman_exported_using": "Postman/7.0.7"
+}

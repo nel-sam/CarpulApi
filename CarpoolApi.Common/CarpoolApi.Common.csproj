@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTracing" Version="0.12.0" />
+    <PackageReference Include="Petabridge.Tracing.ApplicationInsights" Version="0.1.1" />
+  </ItemGroup>
+
+</Project>

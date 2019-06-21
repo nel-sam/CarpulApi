@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Postman\CarpoolApi_collection.json" />
+    <None Remove="Postman\Env_Local.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Postman\CarpoolApi_collection.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Postman\Env_Local.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.0.1" />
+    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CarpoolApi.Common\CarpoolApi.Common.csproj" />
+    <ProjectReference Include="..\CarpoolApi.Services\CarpoolApi.Service.csproj" />
+    <ProjectReference Include="..\CarpoolApi\CarpoolApi.Api.csproj" />
+  </ItemGroup>
+
+</Project>
