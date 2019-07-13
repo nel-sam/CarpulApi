@@ -20,3 +20,5 @@ This project was built by a team of three developers for their senior capstone p
 3. Entity framework but while learning the slight differences from the non-Core Entity
 4. API configuration but while learning the slight differences from the non-Core API's
 5. Setting up and using Swagger (https://swagger.io/) from a Web API
+6. Architectural design and implementation of a Server/Client system using a lot of different tech, which are listed below:
+<img src="https://raw.githubusercontent.com/nel-sam/CarpulWebClient/master/screenshots/readme2.png" width="400px">
