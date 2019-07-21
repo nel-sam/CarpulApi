@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using CarpoolApi.Api.Hashing;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -11,11 +12,16 @@ namespace CarpoolApi.Api.Authentication
     {
         private readonly IUserManagementService userManagementService;
         private readonly TokenManagement tokenManagement;
+        private IHashingService hashingService;
 
-        public TokenAuthenticationService(IUserManagementService service, IOptions<TokenManagement> tokenManagement)
+        public TokenAuthenticationService(
+            IUserManagementService userManagementService, 
+            IOptions<TokenManagement> tokenManagement, 
+            IHashingService hashingService)
         {
-            userManagementService = service;
+            this.userManagementService = userManagementService;
             this.tokenManagement = tokenManagement.Value;
+            this.hashingService = hashingService;
         }
         public object GetToken(AuthenticationRequest request)
         {

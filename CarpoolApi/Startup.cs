@@ -1,5 +1,6 @@
 ﻿using CarpoolApi.Api;
 using CarpoolApi.Api.Authentication;
+using CarpoolApi.Api.Hashing;
 using CarpoolApi.Api.Logger;
 using CarpoolApi.Common.Logger;
 using CarpoolApi.Domain.Repositories;
@@ -100,6 +101,7 @@ namespace CarpoolApi
             services.AddScoped<IAddressDetails, AddressDetails>();
             services.AddScoped<ICarpoolService, CarpoolService>();
             services.AddScoped<ICampusDetails, CampusDetails>();
+            services.AddScoped<IHashingService, HashingService>();
             services.AddScoped<IUserDetails, UserDetails>();
             services.AddScoped<IUserService, UserService>();
             services.AddDbContext<DatabaseContext>();           

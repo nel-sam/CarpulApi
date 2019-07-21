@@ -1,24 +1,35 @@
-﻿using CarpoolApi.Domain.Repositories;
+﻿using CarpoolApi.Api.Hashing;
+using CarpoolApi.Domain.Repositories;
 
 namespace CarpoolApi.Api.Authentication
 {
     public class UserManagementService : IUserManagementService
     {
-        private IUserDetails userDetails;
+        private readonly IUserDetails userDetails;
+        private readonly IHashingService hashingService;
 
-        public UserManagementService(IUserDetails userDetails) => this.userDetails = userDetails;
-
-        public bool IsValidUser(string userName, string password)
+        public UserManagementService(IUserDetails userDetails, IHashingService hashingService)
         {
-            var user = userDetails.GetUserModel(userName);
+            this.userDetails = userDetails;
+            this.hashingService = hashingService;
+        }
 
-            // TODO: Yes, it is very unsafe to store passwords in a database.
-            // In production, we would have some hashing here (with salt). Implement 
-            // that once time allows
-            if (user == null || !user.Password.Equals(password))
+        public bool IsValidUser(string userName, string plainTextPassword)
+        {
+            try
+            {
+                var user = userDetails.GetUserModel(userName);
+                var decrypted = hashingService.Decrypt(user.Password, plainTextPassword);
+
+                if (user != null && decrypted.Equals(plainTextPassword))
+                    return true;
+            }
+            catch
+            {
                 return false;
+            }
 
-            return true;
+            return false;
         }
 
     }

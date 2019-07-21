@@ -1,9 +1,8 @@
-﻿using CarpoolApi.Service.DataTransferObjects;
+﻿using CarpoolApi.Api.Hashing;
+using CarpoolApi.Service.DataTransferObjects;
 using CarpoolApi.Service.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace CarpoolApi.Api.Properties.Controllers
 {
@@ -13,11 +12,12 @@ namespace CarpoolApi.Api.Properties.Controllers
     public class UsersController : Controller
     {
         private IUserService _userService;
+        private IHashingService _hashingService;
 
-
-        public UsersController(IUserService userService)
+        public UsersController(IUserService userService, IHashingService hashingService)
         {
             _userService = userService;
+            _hashingService = hashingService;
         }
 
         [HttpGet]
@@ -44,7 +44,8 @@ namespace CarpoolApi.Api.Properties.Controllers
 			if (!profileDto.IsValid(ref msg))
 				return BadRequest(msg);
 
-            _userService.CreateUser(profileDto);
+            byte[] hashedPassword = _hashingService.Encrypt(profileDto.Password);
+            _userService.CreateUser(profileDto, hashedPassword);
 
             return Ok("Profile created.");
         }

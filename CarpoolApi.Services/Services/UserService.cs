@@ -57,10 +57,10 @@ namespace CarpoolApi.Services
             return user;
         }
 
-        public void CreateUser(ProfileDto profileDto)
+        public void CreateUser(ProfileDto profileDto, byte[] hashedPw)
         {
             UserAggregate userAggregate = new UserAggregate();
-            userAggregate.mapUser(profileDto.FirstName, profileDto.LastName, profileDto.Email, profileDto.Password);
+            userAggregate.mapUser(profileDto.FirstName, profileDto.LastName, profileDto.Email, hashedPw);
 			userAggregate.mapAddress(profileDto.Address.StreetNumber, profileDto.Address.City, profileDto.Address.State, profileDto.Address.ZipCode);
 
             userAggregate.addPhoneNumber(

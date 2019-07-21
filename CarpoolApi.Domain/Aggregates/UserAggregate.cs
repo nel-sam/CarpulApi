@@ -43,7 +43,7 @@ namespace CarpoolApi.Domain.Aggregates
 			OutboundRequests.Add(request);
 		}
 
-		public void mapUser(string firstName, string lastName, string email, string password)
+		public void mapUser(string firstName, string lastName, string email, byte[] password)
         {
             User = new User
             {

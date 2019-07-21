@@ -10,7 +10,7 @@ namespace CarpoolApi.Domain.Models
         public Carpool Carpool { get; set; }
         public List<UserCar> UserCars { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
+        public byte[] Password { get; set; }
         public List<UserPhone> UserPhones { get; set; }
         public List<Request> Requests { get; set; }
         public Address Address { get; set; }

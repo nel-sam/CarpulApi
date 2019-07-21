@@ -13,6 +13,7 @@ This project was built by a team of three developers for their senior capstone p
 ## What I learned
 1. Enabling CORS from a Web API (normally this was done before I'd join a team)
 2. Setting up code for generating and validating JWT tokens for auth. Previously my auth implementations would use more abstracted techniques that relied on Azure Active Directory
+3. Using Rijndael AES encryption algorithm to store and verify passwords
 
 ## Previous skills I was able to practice
 1. Setting up and using Azure Application Insights from a Web API and a Client for telemetry and logging
